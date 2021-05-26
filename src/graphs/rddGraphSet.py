@@ -1,0 +1,35 @@
+from src.sets.sortedListSet import SortedListSet
+
+
+class NaiveSparklessSet:
+    def __init__(self,n_list):
+        self._n_list = n_list.copy()
+
+    def out_neighbours(self,vid):
+        return self._n_list[vid] if vid < len(self._n_list) else SortedListSet([])
+
+    def get_vertex_num(self):
+        return len(self._n_list)
+
+class CustomRow:
+    def __init__(self, vId, neighbours):
+        self.vId = vId
+        self.neighbours = neighbours
+
+class RDDGraphSet:
+    def __init__(self, rdd_custom_rows):
+        self._rdd_custom_rows = rdd_custom_rows
+        self._n_list = rdd_custom_rows.collect()
+        self._n_list = [r.neighbours for r in self._n_list]
+
+    def out_degree(self, vertexID):
+        return len(self.out_neighbours(vertexID))
+
+    def out_neighbours(self, vertex_ID):
+        return self._n_list[vertex_ID]
+
+    def get_spark_less_copy(self):
+        return NaiveSparklessSet(self._n_list)
+
+    def get_edges(self):
+        return self._rdd_custom_rows

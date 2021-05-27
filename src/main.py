@@ -21,7 +21,7 @@ def map_row(row):
     return row
 
 
-def create_undirected_graph_from_csv(file_name):
+def create_undirected_graph_from_csv(file_name,chosen_set=SortedListSet):
     df = spark.read.format("csv").option("header", "true").load(file_name)
     df = df.withColumn("id_1", df["id_1"].cast(IntegerType()))
     df = df.withColumn("id_2", df["id_2"].cast(IntegerType()))

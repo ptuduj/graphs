@@ -4,11 +4,14 @@ from pyspark.sql.types import IntegerType
 import pyspark.sql.types as T
 from pyspark.sql.functions import col, concat
 
-from src.algorithms.BronKerboschl import bronKerboschl
+from src.algorithms.BronKerboschl import bron_kerboschl
 from src.algorithms.CliqueCount import clique_count, rec_clique_count
+from src.algorithms.KCliqueListing import rec_clique_listing, clique_listing
+from src.algorithms.KCliqueStar import k_clique_star
 from src.algorithms.triangleCount import triangle_count, triangle_count_per_vertex
 from src.graphs.rddGraphSet import CustomRow, RDDGraphSet
-from src.sets.sortedListSet import SortedListSet
+from src.sets.set import SortedListSet, HashSet
+
 
 def map_row(row):
     if row["id_1"] == None:
@@ -16,6 +19,7 @@ def map_row(row):
     if row["id_2"] == None:
         return (row["id_1"], row["neighbours1"], row["id_1"], row["neighbours2"])
     return row
+
 
 def create_undirected_graph_from_csv(file_name):
     df = spark.read.format("csv").option("header", "true").load(file_name)
@@ -41,6 +45,7 @@ def create_undirected_graph_from_csv(file_name):
     rdd = df_result.rdd.map(lambda row: CustomRow(row["id"], SortedListSet(row["neighbours"], from_sorted=False)))
     return RDDGraphSet(rdd)
 
+
 def create_undirected_graph(filename):
     reader = csv.reader(open(filename, 'r'))
     headers = next(reader, None)
@@ -53,8 +58,10 @@ def create_undirected_graph(filename):
     df = df.withColumn("id_1", df["id_1"].cast(IntegerType()))
     df = df.withColumn("id_2", df["id_2"].cast(IntegerType()))
     rdd = df.groupBy("id_1").agg(F.collect_list("id_2").alias("neighbours")).orderBy(df["id_1"].asc()).rdd
-    rdd = rdd.map(lambda row: CustomRow(row["id_1"], SortedListSet(row["neighbours"], from_sorted=False)))
-    rdd.toDF().show()
+    #rdd = rdd.map(lambda row: CustomRow(row["id_1"], SortedListSet(row["neighbours"], from_sorted=False)))
+    rdd = rdd.map(lambda row: CustomRow(row["id_1"], HashSet(row["neighbours"])))
+
+    #rdd.toDF().show()
     return RDDGraphSet(rdd)
 
 
@@ -65,21 +72,29 @@ if __name__ == '__main__':
         .getOrCreate()
     sc = spark.sparkContext
     graph = create_undirected_graph("graphDatasets/test_graph_edges.csv")
-    #row1 = graph.get_edges().filter(lambda row: row.vId == 1).first()
 
-
-    # print("Start count k-cliques")
-    # print(clique_count(sc, graph, 3))
-    #print(rec_clique_count(graph.get_spark_less_copy(), 4, row1.vId, row1.neighbours))
-
-    print('BronKerboschl')
-    l = bronKerboschl(sc, graph)
+    # row0 = graph.get_edges().filter(lambda row: row.vId == 0).first()
+    print("Start k-cliques listing")
+    #rec_clique_listing(graph.get_spark_less_copy(), 3, row1.vId, row1.neighbours)
+    l = clique_listing(sc, graph, 4)
     for elem in l:
         print(elem)
 
-    # print('triangle count')
-    # print(triangle_count(sc, graph))
-   #  print(triangle_count_per_vertex(graph.get_spark_less_copy(), row1))
+    print("Start k-cliques star")
+    res = k_clique_star(sc, graph, 3)
+    for elem in res:
+        print(elem)
+
+    print("k-cliques count")
+    print(clique_count(sc, graph, 3))
+
+    print('BronKerboschl')
+    l = bron_kerboschl(sc, graph)
+    for elem in l:
+        print(elem)
+
+    print('triangle count')
+    print(triangle_count(sc, graph))
 
 
     input('enter to crash')

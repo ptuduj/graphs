@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.sets.hashSet import HashSet
+from src.sets.set import HashSet
 
 
 class TestHashSet(TestCase):

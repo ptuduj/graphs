@@ -1,5 +1,5 @@
 from unittest import TestCase
-from src.sets.sortedListSet import SortedListSet
+from src.sets.set import SortedListSet
 
 
 class TestSortedListSet(TestCase):

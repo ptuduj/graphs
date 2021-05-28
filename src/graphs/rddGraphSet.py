@@ -31,7 +31,7 @@ class RDDGraphSet:
         nodes_count = self._rdd_custom_rows.count()
         return [i for i in range(nodes_count)]
 
-    def get_edges(self):
+    def get_rows(self):
         return self._rdd_custom_rows
 
     def out_degree(self, vertexID):

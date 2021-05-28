@@ -11,7 +11,7 @@ def triangle_count_per_vertex(graph, x):
 def triangle_count(sc, graph):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
     count = graph \
-        .get_edges() \
+        .get_rows() \
         .map(lambda row: triangle_count_per_vertex(non_spark_graph.value, row))\
         .sum()
 

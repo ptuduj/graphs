@@ -29,6 +29,6 @@ def spark_bron_kerboschl(graph, x):
 def bron_kerboschl(sc, graph):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
     return graph \
-        .get_edges() \
+        .get_rows() \
         .flatMap(lambda x: spark_bron_kerboschl(non_spark_graph.value, x))\
         .collect()

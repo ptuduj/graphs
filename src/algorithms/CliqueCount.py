@@ -17,7 +17,7 @@ def clique_count(sc, graph, k):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
 
     count = graph\
-        .get_edges()\
+        .get_rows()\
         .map(lambda x: rec_clique_count(non_spark_graph.value, k-1, x.vId, x.neighbours))\
         .sum()
 

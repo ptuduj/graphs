@@ -31,7 +31,7 @@ def spark_clique_listing(graph, x, k):
 def clique_listing(sc, graph, k):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
     return graph \
-        .get_edges() \
+        .get_rows() \
         .flatMap(lambda x: spark_clique_listing(non_spark_graph.value, x, k)) \
         .filter(lambda x: len(x) == k) \
         .collect()

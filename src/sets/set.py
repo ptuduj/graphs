@@ -45,7 +45,7 @@ class Set:
 
 
 class HashSet(Set):
-    def __init__(self, elems):
+    def __init__(self, elems, from_sorted = True):
         self.hash_set = set(elems)
 
     def is_empty(self) -> bool:

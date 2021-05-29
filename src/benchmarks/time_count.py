@@ -1,5 +1,20 @@
 import time
 import numpy as np
+
+
+import os, sys
+currDir = os.path.dirname(os.path.realpath(__file__))
+rootDir = os.path.abspath(os.path.join(currDir, '../..'))
+if rootDir not in sys.path: # add parent dir to paths
+    sys.path.append(rootDir)
+
+import argparse
+
+
+
+
+
+
 from src.algorithms.BronKerboschl import bron_kerboschl
 from src.algorithms.CliqueCount import clique_count, rec_clique_count
 from src.algorithms.KCliqueListing import rec_clique_listing, clique_listing
@@ -11,11 +26,19 @@ from src.graph_creation import *
 from src.util.printing import *
 
 
+
 RETRIES = 2
 
 
 if __name__ == '__main__':
-    tested_graph_file_path = "../graphDatasets/test_graph_edges.csv"
+    parser = argparse.ArgumentParser(description="f_command_line")
+    parser.add_argument('-c',default=False,action='store_true')
+    args = parser.parse_args()
+    tested_graph_file_path = None
+    if args.c :
+        tested_graph_file_path = "src/graphDatasets/test_graph_edges.csv"
+    else:
+        tested_graph_file_path = '../graphDatasets/test_graph_edges.csv'
     spark = SparkSession.builder \
         .master("local") \
         .getOrCreate()

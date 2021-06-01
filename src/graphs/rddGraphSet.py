@@ -1,4 +1,4 @@
-from src.sets.set import SortedListSet
+from src.sets.set import SortedListSet, HashSet
 
 
 class NaiveSparklessSet:
@@ -9,7 +9,7 @@ class NaiveSparklessSet:
         return [i for i in range(len(self._n_list))]
 
     def out_neighbours(self,vid):
-        return self._n_list[vid] if vid < len(self._n_list) else SortedListSet([])
+        return self._n_list[vid] if vid < len(self._n_list) else HashSet([])
 
     def get_vertex_num(self):
         return len(self._n_list)
@@ -33,6 +33,30 @@ class RDDGraphSet:
 
     def get_rows(self):
         return self._rdd_custom_rows
+
+    def out_degree(self, vertexID):
+        return len(self.out_neighbours(vertexID))
+
+    def out_neighbours(self, vertex_ID):
+        return self._n_list[vertex_ID]
+
+    def get_spark_less_copy(self):
+        return NaiveSparklessSet(self._n_list)
+
+
+class EdgeListGraphSet:
+    def __init__(self, edge_list_rdd, rdd_custom_rows):
+        self.edge_list_rdd = edge_list_rdd
+        self._rdd_custom_rows = rdd_custom_rows
+        self._n_list = rdd_custom_rows.collect()
+        self._n_list = [r.neighbours for r in self._n_list]
+
+    def all_nodes(self):
+        nodes_count = self._rdd_custom_rows.count()
+        return [i for i in range(nodes_count)]
+
+    def get_edges(self):
+        return self.edge_list_rdd
 
     def out_degree(self, vertexID):
         return len(self.out_neighbours(vertexID))

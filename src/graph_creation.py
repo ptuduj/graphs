@@ -4,7 +4,8 @@ from pyspark.sql.types import IntegerType
 import pyspark.sql.types as T
 from pyspark.sql.functions import col, concat
 
-from src.graphs.rddGraphSet import CustomRow, RDDGraphSet
+from src.graphs.rddGraphSet import CustomRow, RDDGraphSet, EdgeListGraphSet
+
 
 def map_row(row):
     if row["id_1"] == None:
@@ -39,20 +40,40 @@ def create_undirected_graph_from_csv(spark,file_name,chosen_set_const):
     return RDDGraphSet(rdd)
 
 
-def create_undirected_graph(spark,filename,chosen_set_const):
+def create_edgeListGraph(spark, filename, chosen_set_const):
     reader = csv.reader(open(filename, 'r'))
     headers = next(reader, None)
     edges = []
     for id1, id2 in reader:
+        id1 = int(id1)
+        id2 = int(id2)
+        # if id1 < id2:
         edges.append((id1, id2))
+        # else:
         edges.append((id2, id1))
 
-    df = spark.createDataFrame(edges, headers)
-    df = df.withColumn("id_1", df["id_1"].cast(IntegerType()))
-    df = df.withColumn("id_2", df["id_2"].cast(IntegerType()))
-    rdd = df.groupBy("id_1").agg(F.collect_list("id_2").alias("neighbours")).orderBy(df["id_1"].asc()).rdd
-    #rdd = rdd.map(lambda row: CustomRow(row["id_1"], chosen_set_const(row["neighbours"], from_sorted=False)))
-    rdd = rdd.map(lambda row: CustomRow(row["id_1"], chosen_set_const(row["neighbours"], from_sorted=False)))
+    sc = spark.sparkContext
+    edge_rdd = sc.parallelize(edges)
 
-    #rdd.toDF().show()
-    return RDDGraphSet(rdd)
+    df = spark.createDataFrame(edges, headers)
+    rdd = df.groupBy("id_1").agg(F.collect_list("id_2").alias("neighbours")).orderBy(df["id_1"].asc()).rdd
+    custom_rows_rdd = rdd.map(lambda row: CustomRow(row["id_1"], chosen_set_const(row["neighbours"], from_sorted=False)))
+    return EdgeListGraphSet(edge_rdd, custom_rows_rdd)
+
+def create_rddGraphSet(spark, filename, chosen_set_const):
+    reader = csv.reader(open(filename, 'r'))
+    headers = next(reader, None)
+    edges = []
+    for id1, id2 in reader:
+        id1 = int(id1)
+        id2 = int(id2)
+        if id1 < id2:
+            edges.append((id1, id2))
+        else:
+            edges.append((id2, id1))
+
+    df = spark.createDataFrame(edges, headers)
+    rdd = df.groupBy("id_1").agg(F.collect_list("id_2").alias("neighbours")).orderBy(df["id_1"].asc()).rdd
+    custom_rows_rdd = rdd.map(lambda row: CustomRow(row["id_1"], chosen_set_const(row["neighbours"], from_sorted=False)))
+    return RDDGraphSet(custom_rows_rdd)
+

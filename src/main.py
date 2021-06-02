@@ -14,15 +14,14 @@ if __name__ == '__main__':
         .master("local") \
         .getOrCreate()
     sc = spark.sparkContext
-    # edge_list_graph = create_edgeListGraph(spark, "graphDatasets/musae_git_edges.csv", HashSet)
-    # print("xxxx ", edge_list_graph.get_edges().count())
-    custom_rows_graph = create_rddGraphSet(spark, "graphDatasets/musae_git_edges.csv", HashSet)
-    # print('triangle count')
-    # t_start = time.time()
-    # res = triangle_count2(sc, edge_list_graph)
-    # t = time.time() - t_start
-    # print("Time ", t, " s")
-    # print(res)
+    edge_list_graph = create_edgeListGraph(spark, "graphDatasets/musae_git_edges.csv", HashSet)
+    # custom_rows_graph = create_rddGraphSet(spark, "graphDatasets/musae_git_edges.csv", HashSet)
+    print('triangle count')
+    t_start = time.time()
+    res = triangle_count2(sc, edge_list_graph)
+    t = time.time() - t_start
+    print("Time ", t, " s")
+    print(res)
 
     # t_start = time.time()
     # res = triangle_count(sc, custom_rows_graph)
@@ -43,8 +42,8 @@ if __name__ == '__main__':
     # for elem in res:
     #     print(elem)
     #
-    print("k-cliques count")
-    print(clique_count(sc, custom_rows_graph, 3))
+    # print("k-cliques count")
+    # print(clique_count(sc, custom_rows_graph, 3))
     #
     # print('BronKerboschl')
     # l = bron_kerboschl(sc, graph)

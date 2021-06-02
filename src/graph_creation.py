@@ -47,10 +47,10 @@ def create_edgeListGraph(spark, filename, chosen_set_const):
     for id1, id2 in reader:
         id1 = int(id1)
         id2 = int(id2)
-        # if id1 < id2:
-        edges.append((id1, id2))
-        # else:
-        edges.append((id2, id1))
+        if id1 < id2:
+            edges.append((id1, id2))
+        else:
+            edges.append((id2, id1))
 
     sc = spark.sparkContext
     edge_rdd = sc.parallelize(edges)

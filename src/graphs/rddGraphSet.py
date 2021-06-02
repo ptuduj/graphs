@@ -8,8 +8,11 @@ class NaiveSparklessSet:
     def all_nodes(self):
         return [i for i in range(len(self._n_list))]
 
-    def out_neighbours(self,vid):
-        return self._n_list[vid] if vid < len(self._n_list) else HashSet([])
+    def out_neighbours(self, vid):
+        if vid in self._n_list:
+            return self._n_list[vid]
+        else:
+            return HashSet([])
 
     def get_vertex_num(self):
         return len(self._n_list)
@@ -24,8 +27,8 @@ class CustomRow:
 class RDDGraphSet:
     def __init__(self, rdd_custom_rows):
         self._rdd_custom_rows = rdd_custom_rows
-        self._n_list = rdd_custom_rows.collect()
-        self._n_list = [r.neighbours for r in self._n_list]
+        rows = rdd_custom_rows.collect()
+        self._n_list = {r.vId: r.neighbours for r in rows}
 
     def all_nodes(self):
         nodes_count = self._rdd_custom_rows.count()
@@ -48,8 +51,8 @@ class EdgeListGraphSet:
     def __init__(self, edge_list_rdd, rdd_custom_rows):
         self.edge_list_rdd = edge_list_rdd
         self._rdd_custom_rows = rdd_custom_rows
-        self._n_list = rdd_custom_rows.collect()
-        self._n_list = [r.neighbours for r in self._n_list]
+        rows = rdd_custom_rows.collect()
+        self._n_list = {r.vId: r.neighbours for r in rows}
 
     def all_nodes(self):
         nodes_count = self._rdd_custom_rows.count()

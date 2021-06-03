@@ -42,7 +42,7 @@ if __name__ == '__main__':
         .getOrCreate()
     sc = spark.sparkContext
 
-    undirected_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
+    undirected_rdd_graph = create_graph(spark, file_name, SortedListSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
 
     print('BronKerboschl')
     t_start = time.time()

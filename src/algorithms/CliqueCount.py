@@ -1,4 +1,3 @@
-from math import factorial
 
 def rec_clique_count(graph, k, u, nset):
     if k == 1:
@@ -21,5 +20,4 @@ def clique_count(sc, graph, k):
         .map(lambda x: rec_clique_count(non_spark_graph.value, k-1, x.vId, x.neighbours))\
         .sum()
 
-    assert(count % factorial(k) == 0)
-    return count // factorial(k)
+    return count

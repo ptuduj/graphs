@@ -1,4 +1,15 @@
 from src.sets.set import SortedListSet, HashSet
+from enum import Enum
+
+
+class GraphType(Enum):
+    DIRECTED = 0
+    UNDIRECTED = 1
+
+
+class GraphRepresentation(Enum):
+    RDDGraphSet = 0
+    EdgeListGraphSet = 1
 
 
 class NaiveSparklessSet:

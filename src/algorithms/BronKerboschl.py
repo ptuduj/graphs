@@ -23,6 +23,7 @@ def spark_bron_kerboschl(graph, x):
     P = all_vertices_set.elems_from(v)
     X = all_vertices_set.elems_to(v)
     nb = x.neighbours
+    #print(v, P.intersect(nb))
     return rec_bron_kerboschl(R, P.intersect(nb), X.intersect(nb), graph)
 
 

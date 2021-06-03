@@ -1,15 +1,28 @@
 from src.sets.set import Set
 
+def choose_pivot(P, X, graph):
+    S = P.union(X)
+    curr_max = 0
+    pivot_neigh = None
+    for u in S:
+        neigh = graph.out_neighbours(u)
+        l = len(neigh.intersect(P))
+        if l >= curr_max:
+            curr_max = l
+            pivot_neigh = neigh
+    return pivot_neigh
+
+
 
 def rec_bron_kerboschl(R, P, X, graph):
     if len(P) == 0 and len(X) == 0:
         return [R]
 
     out = []
-    for v in P:
+    for v in P.difference(choose_pivot(P, X, graph)):
         nb = graph.out_neighbours(v)
-        out.extend(rec_bron_kerboschl(R.add(v),P.elems_from(v).intersect(nb),X.intersect(nb),graph))
-        # P = P.remove(v)
+        out.extend(rec_bron_kerboschl(R.add(v),P.intersect(nb),X.intersect(nb),graph))
+        P = P.remove(v)
         X = X.add(v)
     return out
 
@@ -23,7 +36,6 @@ def spark_bron_kerboschl(graph, x):
     P = all_vertices_set.elems_from(v)
     X = all_vertices_set.elems_to(v)
     nb = x.neighbours
-    #print(v, P.intersect(nb))
     return rec_bron_kerboschl(R, P.intersect(nb), X.intersect(nb), graph)
 
 

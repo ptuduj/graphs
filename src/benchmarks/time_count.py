@@ -42,13 +42,15 @@ if __name__ == '__main__':
         .getOrCreate()
     sc = spark.sparkContext
 
-    undirected_rdd_graph = create_graph(spark, file_name, SortedListSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
+    undirected_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
 
     print('BronKerboschl')
     t_start = time.time()
     l = bron_kerboschl(sc, undirected_rdd_graph)
     t = time.time() - t_start
     print("Time ", t, " s")
+    for elem in l:
+        print(elem)
 
     input('enter to crash')
     spark.stop()

@@ -23,7 +23,7 @@ class NaiveSparklessSet:
         if vid in self._n_list:
             return self._n_list[vid]
         else:
-            return SortedListSet([])
+            return HashSet([])
 
     def get_vertex_num(self):
         return len(self._n_list)

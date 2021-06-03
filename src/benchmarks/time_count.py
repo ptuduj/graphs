@@ -4,7 +4,8 @@ import numpy as np
 
 import os, sys
 
-from src.algorithms.triangleCount2 import triangle_count2
+from pyspark.sql import SparkSession
+
 
 currDir = os.path.dirname(os.path.realpath(__file__))
 rootDir = os.path.abspath(os.path.join(currDir, '../..'))
@@ -29,17 +30,29 @@ RETRIES = 1
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="f_command_line")
-    # parser.add_argument('-c',default=False,action='store_true')
-    # args = parser.parse_args()
-    # tested_graph_file_path = None
-    # if args.c :
-    #     tested_graph_file_path = "src/graphDatasets/musae_git_edges.csv"
-    # else:
-    #     tested_graph_file_path = '../graphDatasets/musae_git_edges.csv'
-    # spark = SparkSession.builder \
-    #     .master("local") \
-    #     .getOrCreate()
-    # sc = spark.sparkContext
+    parser.add_argument('-c',default=False,action='store_true')
+    args = parser.parse_args()
+    tested_graph_file_path = None
+    if args.c :
+        file_name = "src/graphDatasets/musae_git_edges.csv"
+    else:
+        file_name = '../graphDatasets/musae_git_edges.csv'
+    spark = SparkSession.builder \
+        .master("local") \
+        .getOrCreate()
+    sc = spark.sparkContext
+
+    undirected_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
+
+    print('BronKerboschl')
+    t_start = time.time()
+    l = bron_kerboschl(sc, undirected_rdd_graph)
+    t = time.time() - t_start
+    print("Time ", t, " s")
+
+    input('enter to crash')
+    spark.stop()
+
     #
     # graph_types = {"rddGraphSet": create_undirected_graph}
     # sets = {"HashSet" : HashSet}

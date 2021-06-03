@@ -35,7 +35,7 @@ def map_bron_kerboschl(graph, x):
     return out
 
 
-def bron_kerboschl2(sc, graph):
+def bron_kerboschl(sc, graph):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
     return graph \
         .get_rows() \

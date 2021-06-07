@@ -27,6 +27,7 @@ def clique_count_map(graph, k, u, v):
 def clique_count2(sc, graph, k):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
     return graph\
-        .get_edges()\
+        .get_edges() \
+        .filter(lambda edge: edge[0] != edge[1])\
         .map(lambda edge: clique_count_map(non_spark_graph.value, k-1, edge[0], edge[1]))\
         .sum()

@@ -1,9 +1,6 @@
 import time
 import numpy as np
-
-
 import os, sys
-
 from pyspark.sql import SparkSession
 
 
@@ -13,7 +10,11 @@ if rootDir not in sys.path: # add parent dir to paths
     sys.path.append(rootDir)
 
 import argparse
-from src.algorithms.BronKerboschl import bron_kerboschl
+from src.algorithms.triangleCount2 import triangle_count2
+from src.algorithms.CliqueCount2 import clique_count2
+from src.algorithms.tomita import tomita
+from src.algorithms.bronKerbosch import bron_kerbosch
+
 from src.algorithms.CliqueCount import clique_count, rec_clique_count
 from src.algorithms.KCliqueListing import rec_clique_listing, clique_listing
 from src.algorithms.KCliqueStar import k_clique_star
@@ -34,19 +35,19 @@ if __name__ == '__main__':
     args = parser.parse_args()
     tested_graph_file_path = None
     if args.c :
-        file_name = "src/graphDatasets/musae_git_edges.csv"
+        file_name = "src/graphDatasets/test_graph_edges.csv"
     else:
-        file_name = '../graphDatasets/musae_git_edges.csv'
+        file_name = '../graphDatasets/test_graph_edges.csv'
     spark = SparkSession.builder \
         .master("local") \
         .getOrCreate()
     sc = spark.sparkContext
 
     undirected_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
+    #directed_edge_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.EdgeListGraphSet, GraphType.DIRECTED)
 
-    print('BronKerboschl')
     t_start = time.time()
-    l = bron_kerboschl(sc, undirected_rdd_graph)
+    l = tomita(sc, undirected_rdd_graph)
     t = time.time() - t_start
     print("Time ", t, " s")
     for elem in l:

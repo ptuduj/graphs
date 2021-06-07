@@ -1,5 +1,6 @@
 from __future__ import annotations
 import bisect
+from pyroaring import BitMap
 
 
 class Set:
@@ -42,6 +43,8 @@ class Set:
             return SortedListSet(elems)
         elif isinstance(t, HashSet):
             return HashSet(elems)
+        elif isinstance(t, RoaringBitMapSet):
+            return RoaringBitMapSet(elems)
 
 
 class HashSet(Set):
@@ -68,10 +71,6 @@ class HashSet(Set):
 
     def remove(self, elem) -> Set:
         return HashSet(self.hash_set - {elem})
-
-    def find(self, l, elem):
-        index = bisect.bisect_left(l, elem)
-        return index
 
     def elems_to(self, elem):
         if not self.contains(elem):
@@ -225,3 +224,68 @@ class SortedListSet(Set):
 
     def __hash__(self):
         return hash(tuple(self._sorted_list))
+
+
+class RoaringBitMapSet(Set):
+    def __init__(self, elems):
+        self.roaring_bit_map = BitMap(elems)
+
+    def is_empty(self) -> bool:
+        return len(self.roaring_bit_map) == 0
+
+    def contains(self, elem) -> bool:
+        return elem in self.roaring_bit_map
+
+    def difference(self, other) -> Set:
+        return RoaringBitMapSet(self.roaring_bit_map - other.roaring_bit_map)
+
+    def intersect(self, other)-> Set:
+        return RoaringBitMapSet(self.roaring_bit_map & other.roaring_bit_map)
+
+    def union(self, other) -> Set:
+        return RoaringBitMapSet(self.roaring_bit_map | other.roaring_bit_map)
+
+    def add(self, elem)-> Set:
+        return RoaringBitMapSet(self.roaring_bit_map | BitMap([elem]))
+
+    def remove(self, elem) -> Set:
+        return RoaringBitMapSet(self.roaring_bit_map - BitMap([elem]))
+
+    def elems_to(self, elem):
+        if not self.contains(elem):
+            raise Exception("elem not found")
+        l = list(self.roaring_bit_map)
+        l.index(elem)
+
+        split_idx = l.index(elem)
+        return RoaringBitMapSet(l[:split_idx])
+
+
+    def elems_from(self, elem):
+        if not self.contains(elem):
+            raise Exception("elem not found")
+
+        l = list(self.roaring_bit_map)
+        l.index(elem)
+
+        split_idx = l.index(elem)
+        return RoaringBitMapSet(l[split_idx:])
+
+    def __len__(self) -> int:
+        return len(self.roaring_bit_map)
+
+    def __iter__(self):
+        return iter(self.roaring_bit_map)
+
+    def __str__(self):
+        return str(self.roaring_bit_map)
+
+    def __eq__(self, other):
+        if not isinstance(other, RoaringBitMapSet):
+            return False
+
+        return self.roaring_bit_map == other.roaring_bit_map
+
+    def __hash__(self):
+        return hash(tuple(self.roaring_bit_map))
+

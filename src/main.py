@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 
-from src.algorithms.BronKerboschl import bron_kerboschl
+from src.algorithms.triangleCount2 import triangle_count2
 from src.sets.set import SortedListSet, HashSet
 from src.graph_creation import *
 import time
@@ -14,17 +14,17 @@ if __name__ == '__main__':
 
     file_name = "graphDatasets/musae_git_edges.csv"
 
-    #directed_edgeList_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.EdgeListGraphSet, GraphType.DIRECTED)
-    undirected_rdd_graph = create_graph(spark, file_name, SortedListSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
-    #directed_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.DIRECTED)
+    directed_edgeList_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.EdgeListGraphSet, GraphType.DIRECTED)
+    # undirected_rdd_graph = create_graph(spark, file_name, SortedListSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
+    # directed_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.DIRECTED)
 
 
     # print('triangle count')
-    # t_start = time.time()
-    # res = triangle_count2(sc, directed_edgeList_graph)
-    # t = time.time() - t_start
-    # print("Time ", t, " s")
-    # print(res)
+    t_start = time.time()
+    res = triangle_count2(sc, directed_edgeList_graph)
+    t = time.time() - t_start
+    print("Time ", t, " s")
+    print(res)
     #
     # t_start = time.time()
     # res = triangle_count(sc, directed_rdd_graph)

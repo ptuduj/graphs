@@ -10,7 +10,7 @@ class GraphType(Enum):
 class GraphRepresentation(Enum):
     RDDGraphSet = 0
     EdgeListGraphSet = 1
-
+    
 
 class NaiveSparklessSet:
     def __init__(self, n_list):

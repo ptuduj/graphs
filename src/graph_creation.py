@@ -6,21 +6,23 @@ from src.graphs.rddGraphSet import CustomRow, RDDGraphSet, EdgeListGraphSet, Gra
 def parse_csv(graph_type, filename):
     reader = csv.reader(open(filename, 'r'))
     headers = next(reader, None)
-    edges = []
+    edges = set()
 
     for id1, id2 in reader:
         id1, id2 = int(id1), int(id2)
+        if id1 == id2:
+            continue
         if graph_type == GraphType.DIRECTED:
             if id1 < id2:
-                edges.append((id1, id2))
+                edges.add((id1, id2))
             else:
-                edges.append((id2, id1))
+
+                edges.add((id2, id1))
 
         elif graph_type == GraphType.UNDIRECTED:
-            edges.append((id1, id2))
-            edges.append((id2, id1))
-
-    return headers, edges
+            edges.add((id1, id2))
+            edges.add((id2, id1))
+    return headers, list(edges)
 
 
 def create_graph_repr(chosen_graph_repr, edge_rdd, custom_rows_rdd):

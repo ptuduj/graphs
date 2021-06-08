@@ -5,6 +5,7 @@ from src.sets.set import SortedListSet, HashSet
 from src.graph_creation import *
 import time
 
+
 if __name__ == '__main__':
 
     spark = SparkSession.builder \
@@ -14,12 +15,15 @@ if __name__ == '__main__':
 
     file_name = "graphDatasets/musae_git_edges.csv"
 
-    directed_edgeList_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.EdgeListGraphSet, GraphType.DIRECTED)
-    # undirected_rdd_graph = create_graph(spark, file_name, SortedListSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
-    # directed_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.DIRECTED)
+    preprocessing_for_directed_graph = [remove_self_edges, make_edges_oriented, remove_duplicate_edges]
+    preprocessing_for_undirected_graph = [make_graph_undirected]
+
+    directed_edgeList_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.EdgeListGraphSet, preprocessing_for_directed_graph)
+    # undirected_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, preprocessing_for_undirected_graph)
+    # directed_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, preprocessing_for_directed_graph)
 
 
-    # print('triangle count')
+    print('triangle count')
     t_start = time.time()
     res = triangle_count2(sc, directed_edgeList_graph)
     t = time.time() - t_start
@@ -59,16 +63,16 @@ if __name__ == '__main__':
     # print(res)
 
 
-    print('BronKerboschl')
+    # print('BronKerboschl')
+    # # t_start = time.time()
+    # # l = bron_kerboschl(sc, undirected_rdd_graph)
+    # # t = time.time() - t_start
+    # # print("Time ", t, " s")
+    #
     # t_start = time.time()
     # l = bron_kerboschl(sc, undirected_rdd_graph)
     # t = time.time() - t_start
     # print("Time ", t, " s")
-
-    t_start = time.time()
-    l = bron_kerboschl(sc, undirected_rdd_graph)
-    t = time.time() - t_start
-    print("Time ", t, " s")
 
     input('enter to crash')
     spark.stop()

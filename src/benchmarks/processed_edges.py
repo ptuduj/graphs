@@ -35,26 +35,23 @@ if __name__ == '__main__':
     args = parser.parse_args()
     tested_graph_file_path = None
     if args.c :
-        file_name = "src/graphDatasets/Slashdot0811.csv"
+        file_name = "src/graphDatasets/test_graph_edges.csv"
     else:
-        file_name = '../graphDatasets/Slashdot0811.csv'
+        file_name = '../graphDatasets/test_graph_edges.csv'
     spark = SparkSession.builder \
         .master("local") \
         .getOrCreate()
     sc = spark.sparkContext
 
-    preprocessing_for_directed_graph = [remove_self_edges, make_edges_oriented, remove_duplicate_edges]
-    preprocessing_for_undirected_graph = [make_graph_undirected]
-
-    directed_edgeList_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.EdgeListGraphSet, preprocessing_for_directed_graph)
-    # undirected_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, preprocessing_for_undirected_graph)
-    # directed_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, preprocessing_for_directed_graph)
+    undirected_rdd_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.RDDGraphSet, GraphType.UNDIRECTED)
+    #directed_edge_graph = create_graph(spark, file_name, HashSet, GraphRepresentation.EdgeListGraphSet, GraphType.DIRECTED)
 
     t_start = time.time()
-    l = triangle_count2(sc, directed_edgeList_graph)
+    l = tomita(sc, undirected_rdd_graph)
     t = time.time() - t_start
     print("Time ", t, " s")
-    print(l)
+    for elem in l:
+        print(elem)
 
     input('enter to crash')
     spark.stop()

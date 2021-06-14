@@ -1,10 +1,11 @@
-from src.sets.set import SortedListSet, HashSet
+from src.sets.set import SortedListSet, HashSet, RoaringBitMapSet
 from enum import Enum
 
 
 class GraphRepresentation(Enum):
     RDDGraphSet = 0
-    EdgeListGraphSet = 1
+    EdgeRDDGraph = 1
+    VirtualNodesGraph = 2
     
 
 class NaiveSparklessSet:
@@ -24,10 +25,12 @@ class NaiveSparklessSet:
         return len(self._n_list)
 
 
+
 class CustomRow:
     def __init__(self, vId, neighbours):
         self.vId = vId
         self.neighbours = neighbours
+
 
 
 class RDDGraphSet:
@@ -35,6 +38,12 @@ class RDDGraphSet:
         self._rdd_custom_rows = rdd_custom_rows
         rows = rdd_custom_rows.collect()
         self._n_list = {r.vId: r.neighbours for r in rows}
+
+    def edges_count(self):
+        return len([edge for sublist in self._n_list.values() for edge in sublist])
+
+    def vertices_count(self):
+        return len(set([edge for sublist in self._n_list.values() for edge in sublist] + list(self._n_list.keys())))
 
     def all_nodes(self):
         nodes_count = self._rdd_custom_rows.count()
@@ -53,12 +62,18 @@ class RDDGraphSet:
         return NaiveSparklessSet(self._n_list)
 
 
-class EdgeListGraphSet:
+class EdgeRDDGraph:
     def __init__(self, edge_list_rdd, rdd_custom_rows):
         self.edge_list_rdd = edge_list_rdd
         self._rdd_custom_rows = rdd_custom_rows
         rows = rdd_custom_rows.collect()
         self._n_list = {r.vId: r.neighbours for r in rows}
+
+    def edges_count(self):
+        return len([edge for sublist in self._n_list.values() for edge in sublist])
+
+    def vertices_count(self):
+        return len(set([edge for sublist in self._n_list.values() for edge in sublist] + list(self._n_list.keys())))
 
     def all_nodes(self):
         nodes_count = self._rdd_custom_rows.count()

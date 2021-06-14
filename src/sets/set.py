@@ -48,8 +48,8 @@ class Set:
 
 
 class HashSet(Set):
-    def __init__(self, elems, from_sorted = True):
-        self.hash_set = set(elems)
+    def __init__(self, elems, from_sorted = True, _from_r_value = False):
+        self.hash_set = set(elems) if not _from_r_value else elems
 
     def is_empty(self) -> bool:
         return len(self.hash_set) == 0
@@ -58,19 +58,19 @@ class HashSet(Set):
         return elem in self.hash_set
 
     def difference(self, other) -> Set:
-        return HashSet(self.hash_set - other.hash_set)
+        return HashSet(self.hash_set - other.hash_set, _from_r_value = True)
 
     def intersect(self, other)-> Set:
-        return HashSet(self.hash_set & other.hash_set)
+        return HashSet(self.hash_set & other.hash_set, _from_r_value = True)
 
     def union(self, other) -> Set:
-        return HashSet(self.hash_set | other.hash_set)
+        return HashSet(self.hash_set | other.hash_set, _from_r_value = True)
 
     def add(self, elem)-> Set:
-        return HashSet(self.hash_set | {elem})
+        return HashSet(self.hash_set | {elem}, _from_r_value = True)
 
     def remove(self, elem) -> Set:
-        return HashSet(self.hash_set - {elem})
+        return HashSet(self.hash_set - {elem}, _from_r_value = True)
 
     def elems_to(self, elem):
         if not self.contains(elem):
@@ -227,7 +227,7 @@ class SortedListSet(Set):
 
 
 class RoaringBitMapSet(Set):
-    def __init__(self, elems):
+    def __init__(self, elems, from_sorted = True, _from_r_value = False):
         self.roaring_bit_map = BitMap(elems)
 
     def is_empty(self) -> bool:

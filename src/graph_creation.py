@@ -1,14 +1,15 @@
-import csv
 from pyspark.sql import functions as F
-from src.graphs.rddGraphSet import CustomRow, RDDGraphSet, EdgeListGraphSet, GraphRepresentation
+from pyspark.sql.types import IntegerType
+
+from src.graphs.rddGraphSet import CustomRow, RDDGraphSet, EdgeRDDGraph, GraphRepresentation
 
 
 def create_graph_repr(chosen_graph_repr, edge_rdd, custom_rows_rdd):
     if chosen_graph_repr == GraphRepresentation.RDDGraphSet:
         return RDDGraphSet(custom_rows_rdd)
 
-    elif chosen_graph_repr == GraphRepresentation.EdgeListGraphSet:
-        return EdgeListGraphSet(edge_rdd, custom_rows_rdd)
+    elif chosen_graph_repr == GraphRepresentation.EdgeRDDGraph:
+        return EdgeRDDGraph(edge_rdd, custom_rows_rdd)
 
 
 def change_edge_orientation(r):
@@ -34,14 +35,18 @@ def make_graph_undirected(edges_rdd):
 
 
 def create_graph(spark, filename, chosen_set_repr, chosen_graph_repr, preprocessing_list):
-    edges_rdd = spark.read.options(header='True').csv(filename).rdd
+    edges_rdd = spark.read.options(delimiter="\t", header='True').csv(filename).rdd
 
     for preprocessing_fun in preprocessing_list:
         edges_rdd = preprocessing_fun(edges_rdd)
 
     edges_df = spark.createDataFrame(edges_rdd).toDF("id_1", "id_2")
-    rdd = edges_df.groupBy("id_1").agg(F.collect_list("id_2").alias("neighbours")).rdd
-    custom_rows_rdd = rdd.map(lambda row: CustomRow(row["id_1"], chosen_set_repr(row["neighbours"], from_sorted=False)))
+    edges_df = edges_df.withColumn("id_1", edges_df["id_1"].cast(IntegerType()))
+    edges_df = edges_df.withColumn("id_2", edges_df["id_2"].cast(IntegerType()))
+    edges_rdd = edges_df.rdd
+    edges_df = edges_df.groupBy("id_1").agg(F.collect_list("id_2").alias("neighbours"))
+
+    custom_rows_rdd = edges_df.rdd.map(lambda row: CustomRow(row["id_1"], chosen_set_repr(row["neighbours"], from_sorted = False)))
     return create_graph_repr(chosen_graph_repr, edges_rdd, custom_rows_rdd)
 
 

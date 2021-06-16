@@ -60,7 +60,7 @@ class Pipeline:
             elif b == Benchmarks.ProcessedVerticesPerSec:
                 benchmarks_dict["processed vertices per sec"] = self.graph.vertices_count() / t
 
-        benchmarks_dict["res"] = res
+        #benchmarks_dict["res"] = res
         return benchmarks_dict
 
 

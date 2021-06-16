@@ -29,28 +29,31 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.c :
-        file_name = "src/graphDatasets/com-youtube.ungraph.csv"
+        file_name = "src/graphDatasets/musae_git_edges.csv"
     else:
-        file_name = '../graphDatasets/com-youtube.ungraph.csv'
+        file_name = '../graphDatasets/musae_git_edges.csv'
 
-    #preprocessing_for_directed_graph = [remove_self_edges, make_edges_oriented, remove_duplicate_edges]
-    preprocessing_for_directed_graph = []
-    preprocessing_for_undirected_graph = [make_graph_undirected]
+    # preprocessing_for_directed_graph = [remove_self_edges, make_edges_oriented, remove_duplicate_edges]
+    preprocessing_for_undirected_graph = [remove_self_edges, make_graph_undirected]
 
-    pipeline = Pipeline(file_name, HashSet, {triangle_count2: [], clique_count2: [3]},
-                        [Benchmarks.TimeCount, Benchmarks.ProcessedEdgesPerSec],
-                        GraphRepresentation.EdgeRDDGraph, preprocessing_for_directed_graph)
+    # pipeline = Pipeline(file_name, HashSet, {triangle_count2: [], clique_count2: [3]},
+    #                     [Benchmarks.TimeCount, Benchmarks.ProcessedEdgesPerSec],
+    #                     GraphRepresentation.EdgeRDDGraph, preprocessing_for_directed_graph)
 
-    # pipeline = Pipeline(file_name, HashSet,
-    #                     {bron_kerbosch: [], tomita: [], triangle_count: [],
-    #                      k_clique_star: [3], clique_count: [3]},
-    #                     [Benchmarks.TimeCount, Benchmarks.ProcessedVerticesPerSec],
-    #                     GraphRepresentation.RDDGraphSet, preprocessing_for_undirected_graph)
+    pipeline = Pipeline(file_name, HashSet,
+                        {tomita: []},
+                         #    , tomita: [], triangle_count: [],
+                         # k_clique_star: [3], clique_count: [3]},
+                        [Benchmarks.TimeCount, Benchmarks.ProcessedVerticesPerSec],
+                        GraphRepresentation.RDDGraphSet, preprocessing_for_undirected_graph)
+
+    # pipeline.create_graph()
+    # print("v1", pipeline.graph.vertices_count())
+    # print("v2", pipeline.graph._rdd_custom_rows.count())
 
     res = pipeline.run_all()
+    print(res)
 
 
-    for elem_dict in res:
-        print(elem_dict.items())
 
     input('enter to crash')

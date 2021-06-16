@@ -35,7 +35,7 @@ def make_graph_undirected(edges_rdd):
 
 
 def create_graph(spark, filename, chosen_set_repr, chosen_graph_repr, preprocessing_list):
-    edges_rdd = spark.read.options(delimiter="\t", header='True').csv(filename).rdd
+    edges_rdd = spark.read.options(header='True').csv(filename).rdd
 
     for preprocessing_fun in preprocessing_list:
         edges_rdd = preprocessing_fun(edges_rdd)

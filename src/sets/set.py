@@ -49,7 +49,7 @@ class Set:
 
 class HashSet(Set):
     def __init__(self, elems, from_sorted = True, _from_r_value = False):
-        self.hash_set = set(elems) if not _from_r_value else elems
+        self.hash_set = set(elems)
 
     def is_empty(self) -> bool:
         return len(self.hash_set) == 0
@@ -82,8 +82,9 @@ class HashSet(Set):
         return HashSet(l[:split_idx])
 
     def elems_from(self, elem):
+        #print(elem, self.hash_set)
         if not self.contains(elem):
-            raise Exception("elem not found")
+            raise Exception(elem, "elem not found")
 
         l = list(self.hash_set)
         l.index(elem)

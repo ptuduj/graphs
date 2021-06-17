@@ -101,6 +101,9 @@ class HashSet(Set):
     def __str__(self):
         return str(self.hash_set)
 
+    def __repr__(self):
+        return  str(self.hash_set)
+
     def __eq__(self, other):
         if not isinstance(other, HashSet):
             return False
@@ -217,6 +220,9 @@ class SortedListSet(Set):
 
     def __str__(self):
         return str(self._sorted_list)
+
+    def __repr__(self):
+        return  str(self._sorted_list)
 
     def __eq__(self, other):
         if not isinstance(other, SortedListSet):

@@ -7,7 +7,7 @@ def triangle_count_per_vertex(graph, x):
     return total
 
 
-def triangle_count(sc, graph):
+def triangle_count_vertex_parallel(sc, graph):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
     count = graph \
         .get_rows() \

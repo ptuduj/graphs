@@ -6,7 +6,7 @@ def triangle_count_per_edge(graph, x):
     return len(nb_u.intersect(nb_v))
 
 
-def triangle_count2(sc, graph):
+def triangle_count_edge_parallel(sc, graph):
     non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
     return graph \
         .get_edges() \

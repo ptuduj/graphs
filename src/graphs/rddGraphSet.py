@@ -9,11 +9,12 @@ class GraphRepresentation(Enum):
     
 
 class NaiveSparklessSet:
-    def __init__(self, n_list, _all_vertices, _vertices_count, _edges_count):
+    def __init__(self, n_list, _all_vertices, _vertices_count, _edges_count,_max_vertice_idx):
         self._n_list = n_list.copy()
         self._all_vertices = _all_vertices
         self._vertices_count = _vertices_count
         self._edges_count = _edges_count
+        self._max_vertice_idx= _max_vertice_idx
 
     def edges_count(self):
         return self._edges_count
@@ -35,7 +36,8 @@ class NaiveSparklessSet:
     def get_vertex_num(self):
         return len(self._n_list)
 
-
+    def max_vertice_idx(self):
+        return self._max_vertice_idx
 
 class CustomRow:
     def __init__(self, vId, neighbours):
@@ -50,6 +52,7 @@ class RDDGraphSet:
         rows = rdd_custom_rows.collect()
         self._n_list = {r.vId: r.neighbours for r in rows}
         self._all_vertices = list(set([edge for sublist in self._n_list.values() for edge in sublist] + list(self._n_list.keys())))
+        self._max_vertice_idx = max(self._all_vertices)
         self._vertices_count = len(self._all_vertices)
         self._edges_count = len([edge for sublist in self._n_list.values() for edge in sublist])
 
@@ -75,7 +78,7 @@ class RDDGraphSet:
         return self._n_list[vertex_ID]
 
     def get_spark_less_copy(self):
-        return NaiveSparklessSet(self._n_list, self._all_vertices, self._vertices_count, self._edges_count)
+        return NaiveSparklessSet(self._n_list, self._all_vertices, self._vertices_count, self._edges_count,self._max_vertice_idx)
 
 
 class EdgeRDDGraph:
@@ -86,6 +89,7 @@ class EdgeRDDGraph:
         self._n_list = {r.vId: r.neighbours for r in rows}
         self._all_vertices = list(set([edge for sublist in self._n_list.values() for edge in sublist] + list(self._n_list.keys())))
         self._vertices_count = len(self._all_vertices)
+        self._max_vertice_idx = max(self._all_vertices)
         self._edges_count = len([edge for sublist in self._n_list.values() for edge in sublist])
 
     def edges_count(self):
@@ -109,4 +113,4 @@ class EdgeRDDGraph:
         return self._n_list[vertex_ID]
 
     def get_spark_less_copy(self):
-        return NaiveSparklessSet(self._n_list, self._all_vertices, self._vertices_count, self._edges_count)
+        return NaiveSparklessSet(self._n_list, self._all_vertices, self._vertices_count, self._edges_count,self._max_vertice_idx)

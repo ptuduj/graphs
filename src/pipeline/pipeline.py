@@ -22,9 +22,12 @@ class Pipeline:
 
 
     def _init_spark_context(self):
-        return SparkSession.builder \
+        spark =  SparkSession.builder \
             .master("local") \
             .getOrCreate()
+        spark.conf.set("spark.sql.shuffle.partitions", 2)
+        return spark
+
 
 
     def create_graph(self):
@@ -60,7 +63,7 @@ class Pipeline:
             elif b == Benchmarks.ProcessedVerticesPerSec:
                 benchmarks_dict["processed vertices per sec"] = self.graph.vertices_count() / t
 
-        #benchmarks_dict["res"] = res
+        benchmarks_dict["res"] = res
         return benchmarks_dict
 
 

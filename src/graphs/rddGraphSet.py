@@ -39,6 +39,12 @@ class NaiveSparklessSet:
     def max_vertice_idx(self):
         return self._max_vertice_idx
 
+    def is_virtual(self,vid):
+        if vid> self._max_vertice_idx:
+            return True
+        else:
+            return False
+
 class CustomRow:
     def __init__(self, vId, neighbours):
         self.vId = vId
@@ -82,14 +88,14 @@ class RDDGraphSet:
 
 
 class EdgeRDDGraph:
-    def __init__(self, edge_list_rdd, rdd_custom_rows):
+    def __init__(self, edge_list_rdd, rdd_custom_rows,max_vertices=None):
         self.edge_list_rdd = edge_list_rdd
         self._rdd_custom_rows = rdd_custom_rows
         rows = rdd_custom_rows.collect()
         self._n_list = {r.vId: r.neighbours for r in rows}
         self._all_vertices = list(set([edge for sublist in self._n_list.values() for edge in sublist] + list(self._n_list.keys())))
         self._vertices_count = len(self._all_vertices)
-        self._max_vertice_idx = max(self._all_vertices)
+        self._max_vertice_idx = max(self._all_vertices) if max_vertices is None else max_vertices
         self._edges_count = len([edge for sublist in self._n_list.values() for edge in sublist])
 
     def edges_count(self):

@@ -20,10 +20,10 @@ def vertex_similarity_common_neighbors(u, v, graph):
     return len(out_neighb_u.intersect(out_neighb_v))
 
 
-def vertex_similarity_adamic_adar(u, v, graph):
-    out_neighb_u, out_neighb_v = graph.out_neighbours(u), graph.out_neighbours(v)
-    intersection = out_neighb_u.intersect(out_neighb_v)
-    return sum(intersection.map(lambda vertex:  1.0 / math.log(graph.out_degree(vertex))))
+# def vertex_similarity_adamic_adar(u, v, graph):
+#     out_neighb_u, out_neighb_v = graph.out_neighbours(u), graph.out_neighbours(v)
+#     intersection = out_neighb_u.intersect(out_neighb_v)
+#     return sum(intersection.map(lambda vertex:  1.0 / math.log(graph.out_degree(vertex))))
 
 
 def vertex_similarity_total_neighbors(u, v, graph):

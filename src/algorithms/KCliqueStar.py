@@ -9,7 +9,6 @@ def clique_star(graph, clique):
             s = nb
         s = s.intersect(nb)
 
-    #print("s:", s, clique)
     if s.is_empty():
         return []
 

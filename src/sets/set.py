@@ -75,6 +75,7 @@ class HashSet(Set):
     def elems_to(self, elem):
         if not self.contains(elem):
             raise Exception("elem not found")
+
         l = list(self.hash_set)
         l.index(elem)
 
@@ -91,6 +92,20 @@ class HashSet(Set):
 
         split_idx = l.index(elem)
         return HashSet(l[split_idx:])
+
+    def elems_leq(self,pivot): # less or equal
+        out = []
+        for el in self.hash_set:
+            if el <= pivot:
+                out.append(el)
+        return HashSet(out)
+
+    def elems_gt(self,pivot): # greater
+        out = []
+        for el in self.hash_set:
+            if el > pivot:
+                out.append(el)
+        return HashSet(out)
 
     def __len__(self) -> int:
         return len(self.hash_set)

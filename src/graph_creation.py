@@ -40,7 +40,7 @@ def create_graph(spark,
                  chosen_graph_representation,
                  preprocessing_list):
 
-    edges_rdd = spark.read.options(header='True').csv(filename).rdd
+    edges_rdd = spark.read.options(delimiter="\t", header='True').csv(filename).rdd
 
     for preprocessing_fun in preprocessing_list:
         edges_rdd = preprocessing_fun(edges_rdd)

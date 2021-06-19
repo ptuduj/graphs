@@ -31,14 +31,15 @@ if __name__ == '__main__':
 
 
     if args.c :
-        file_name = "src/graphDatasets/test_graph_edges.csv"
+        file_name = "src/graphDatasets/com-youtube.ungraph.csv"
     else:
-        file_name = '../graphDatasets/musae_git_edges.csv'
+        file_name = '../graphDatasets/com-youtube.ungraph.csv'
 
-    preprocessing_list1 = [remove_self_edges, make_edges_oriented, remove_duplicate_edges]
+    preprocessing_list1 = []
     preprocessing_list2 = [remove_self_edges, make_graph_undirected]
 
-    pipeline = Pipeline(file_name, HashSet, {triangle_count_edge_parallel: [], clique_count_edge_parallel: [4]},
+    pipeline = Pipeline(file_name, RoaringBitMapSet, {triangle_count_edge_parallel: [],
+                                                      clique_count_edge_parallel: [4]},
                         [Benchmarks.TimeCount, Benchmarks.ProcessedEdgesPerSec],
                         GraphRepresentation.EdgeRDDGraph, preprocessing_list1)
 
@@ -53,7 +54,7 @@ if __name__ == '__main__':
     # pipeline = Pipeline(file_name, HashSet,
     #                     {
     #                         triangle_count_vertex_parallel: [],
-    #                         clique_count_vertex_parallel: [3]
+    #                         clique_count_vertex_parallel: [4]
     #                      },
     #                     [Benchmarks.TimeCount, Benchmarks.ProcessedVerticesPerSec],
     #                     GraphRepresentation.RDDGraphSet, preprocessing_list1)

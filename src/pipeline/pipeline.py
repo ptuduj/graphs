@@ -25,7 +25,6 @@ class Pipeline:
         spark =  SparkSession.builder \
             .master("local") \
             .getOrCreate()
-        spark.conf.set("spark.sql.shuffle.partitions", 2)
         return spark
 
 
@@ -58,10 +57,6 @@ class Pipeline:
         for b in benchmarks:
             if b == Benchmarks.TimeCount:
                 benchmarks_dict["time count"] = t
-            elif b == Benchmarks.ProcessedEdgesPerSec:
-                benchmarks_dict["processed edges per sec"] = self.graph.edges_count() / t
-            elif b == Benchmarks.ProcessedVerticesPerSec:
-                benchmarks_dict["processed vertices per sec"] = self.graph.vertices_count() / t
 
         benchmarks_dict["res"] = res
         return benchmarks_dict

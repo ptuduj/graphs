@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1962d774-1423-40f6-b283-4a6aa09cbe80" name="Default Changelist" comment="Change graph creation with preprocessing">
+      <change afterPath="$PROJECT_DIR$/src/graphDatasets/HR_edges.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphDatasets/com-dblp.ungraph.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphDatasets/musae_FR_edges.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphDatasets/musae_facebook_edges.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/tomita.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/tomita.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/benchmarks/run_benchmarks.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/benchmarks/run_benchmarks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph_creation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphs/rddGraphSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphs/rddGraphSet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compression/clique_v_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/compression/clique_v_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compression/manual_testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/compression/manual_testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphDatasets/Slashdot0811.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphDatasets/com-amazon.ungraph.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pipeline/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sets/set.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/sets/set.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/script.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,29 +25,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/benchmarks/run_benchmarks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+            <state relative-caret-position="357">
+              <caret line="46" column="11" lean-forward="true" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/convert_to_cannonical.py">
+        <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-dblp.ungraph.csv">
+          <provider selected="true" editor-type-id="csv-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pipeline/pipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-lj.ungraph.csv">
-          <provider selected="true" editor-type-id="LargeFileEditor">
-            <state relative-caret-position="248">
-              <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+            <state>
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,26 +57,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphs/rddGraphSet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="184">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="e#0#65#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algorithms/CliqueCount2.py">
+        <entry file="file://$PROJECT_DIR$/src/compression/manual_testing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+            <state relative-caret-position="221">
+              <caret line="44" selection-start-line="44" selection-end-line="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sets/set.py">
+        <entry file="file://$PROJECT_DIR$/src/compression/clique_v_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="53" column="31" lean-forward="true" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+            <state relative-caret-position="17">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -76,31 +88,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/algorithms/bronKerbosch.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="24" column="24" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="24" />
+        <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-amazon.ungraph.csv">
+          <provider selected="true" editor-type-id="csv-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_for_virtual.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pipeline/pipeline.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graph_creation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="279">
+              <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -109,10 +117,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pyspark/rdd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="1353" selection-start-line="1353" selection-end-line="1353" />
+        <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-youtube.ungraph.csv">
+          <provider selected="true" editor-type-id="LargeFileEditor">
+            <state relative-caret-position="333">
+              <caret line="129" column="6" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -128,18 +136,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>24205</find>
-      <find>12039</find>
-      <find>32241</find>
-      <find>5725</find>
-      <find>14495</find>
-      <find>'2'</find>
-      <find>'1'</find>
-      <find>52886</find>
-      <find>1,3</find>
-      <find>0</find>
       <find>here</find>
-      <find>roa</find>
       <find>hash</find>
       <find>add</find>
       <find>has</find>
@@ -158,6 +155,17 @@
       <find>not fo</find>
       <find>elems</find>
       <find>sortedli</find>
+      <find>CustomRow</find>
+      <find>adamic</find>
+      <find>F</find>
+      <find>_rdd_custom_rows</find>
+      <find>edge</find>
+      <find>edges_to_remove</find>
+      <find>remove_self_edges</find>
+      <find>54572</find>
+      <find>node_2</find>
+      <find>filte</find>
+      <find>roa</find>
     </findStrings>
     <replaceStrings>
       <replace>,</replace>
@@ -170,12 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/BronKerboschl.py" />
-        <option value="$PROJECT_DIR$/sets/set.py" />
-        <option value="$PROJECT_DIR$/graphs/rddGraphSet.py" />
-        <option value="$PROJECT_DIR$/sets/hashSet.py" />
-        <option value="$PROJECT_DIR$/sets/sortedListSet.py" />
         <option value="$PROJECT_DIR$/src/sets/test_hashSet.py" />
         <option value="$PROJECT_DIR$/src/sets/test_sortedListSet.py" />
         <option value="$PROJECT_DIR$/tests/test_hashSet.py" />
@@ -185,50 +187,55 @@
         <option value="$PROJECT_DIR$/src/graphDatasets/test_graph_edges2.csv" />
         <option value="$PROJECT_DIR$/src/graphDatasets/test_graph_edges.csv" />
         <option value="$PROJECT_DIR$/src/graphDatasets/test_graph_edges3.csv" />
-        <option value="$PROJECT_DIR$/src/algorithms/vertex_similarity.py" />
         <option value="$PROJECT_DIR$/src/graphDatasets/test_graph_edges4.csv" />
         <option value="$PROJECT_DIR$/src/sets/hashSet.py" />
-        <option value="$PROJECT_DIR$/src/algorithms/triangleCount.py" />
-        <option value="$PROJECT_DIR$/src/algorithms/CliqueCount.py" />
         <option value="$PROJECT_DIR$/src/algorithms/CliqueCount2" />
         <option value="$PROJECT_DIR$/src/algorithms/BronKerbosch2.py" />
         <option value="$PROJECT_DIR$/src/graphDatasets/Slashdot0811.csv" />
         <option value="$PROJECT_DIR$/script.py" />
         <option value="$PROJECT_DIR$/src/algorithms/BronKerboschl.py" />
-        <option value="$PROJECT_DIR$/src/algorithms/tomita.py" />
         <option value="$PROJECT_DIR$/out22.txt" />
         <option value="$PROJECT_DIR$/src/out.txt" />
         <option value="$PROJECT_DIR$/out33.txt" />
         <option value="$PROJECT_DIR$/out2.txt" />
-        <option value="$PROJECT_DIR$/src/algorithms/KCliqueListing.py" />
         <option value="$PROJECT_DIR$/tests/roaring_bitMapSet.py" />
         <option value="$PROJECT_DIR$/src/benchmarks/processed_edges.py" />
         <option value="$PROJECT_DIR$/src/graphDatasets/test_graph_edges5.csv" />
-        <option value="$PROJECT_DIR$/src/algorithms/CliqueCount2.py" />
-        <option value="$PROJECT_DIR$/src/algorithms/bronKerbosch.py" />
-        <option value="$PROJECT_DIR$/src/algorithms/triangleCount2.py" />
         <option value="$PROJECT_DIR$/script2.py" />
         <option value="$PROJECT_DIR$/src/graphDatasets/test_edges.csv" />
         <option value="$PROJECT_DIR$/src/script2.py" />
         <option value="$PROJECT_DIR$/src/convert_to_cannonical.py" />
         <option value="$PROJECT_DIR$/src/benchmarks/benchmarks.py" />
-        <option value="$PROJECT_DIR$/src/script.py" />
         <option value="$PROJECT_DIR$/src/main.py" />
         <option value="$PROJECT_DIR$/src/benchmarks/time_count.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/CliqueCount2.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/CliqueCount.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/KCliqueListing.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/triangleCount2.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/triangleCount.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/triangleCountVertexParallel.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/vertex_similarity.py" />
         <option value="$PROJECT_DIR$/src/algorithms/KCliqueStar.py" />
         <option value="$PROJECT_DIR$/src/sets/set.py" />
         <option value="$PROJECT_DIR$/src/graphs/rddGraphSet.py" />
+        <option value="$PROJECT_DIR$/src/graphDatasets/test_for_virtual.csv" />
         <option value="$PROJECT_DIR$/src/graph_creation.py" />
-        <option value="$PROJECT_DIR$/src/pipeline/pipeline.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/triangleCountEdgeParallel.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/bronKerbosch.py" />
+        <option value="$PROJECT_DIR$/src/algorithms/tomita.py" />
+        <option value="$PROJECT_DIR$/src/compression/manual_testing.py" />
+        <option value="$PROJECT_DIR$/src/compression/clique_v_node.py" />
+        <option value="$PROJECT_DIR$/src/script.py" />
+        <option value="$PROJECT_DIR$/src/graphDatasets/script.py" />
         <option value="$PROJECT_DIR$/src/benchmarks/run_benchmarks.py" />
+        <option value="$PROJECT_DIR$/src/pipeline/pipeline.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-81" />
-    <option name="y" value="201" />
-    <option name="width" value="1890" />
-    <option name="height" value="1029" />
+    <option name="x" value="-11" />
+    <option name="width" value="980" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -253,7 +260,19 @@
               <item name="graphSets" type="b2602c69:ProjectViewProjectNode" />
               <item name="graphSets" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
+              <item name="benchmarks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="graphSets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="graphSets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="compression" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="graphSets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="graphSets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="graphDatasets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="graphSets" type="b2602c69:ProjectViewProjectNode" />
@@ -266,12 +285,6 @@
               <item name="graphSets" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pipeline" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="graphSets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="graphSets" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="graphSets" type="b2602c69:ProjectViewProjectNode" />
@@ -313,7 +326,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.run_benchmarks">
-    <configuration name="convert_to_cannonical" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="clique_v_node" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="graphSets" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -321,11 +334,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/compression" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/convert_to_cannonical.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/compression/clique_v_node.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -334,7 +347,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="manual_testing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="graphSets" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -342,11 +355,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/compression" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/compression/manual_testing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -397,7 +410,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="time_count" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="set" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="graphSets" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -405,11 +418,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/benchmarks" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/sets" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\pauli\Desktop\graphSets\src\benchmarks\run_benchmarks.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/sets/set.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -421,10 +434,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.run_benchmarks" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.time_count" />
         <item itemvalue="Python.script" />
-        <item itemvalue="Python.convert_to_cannonical" />
+        <item itemvalue="Python.manual_testing" />
+        <item itemvalue="Python.set" />
+        <item itemvalue="Python.clique_v_node" />
       </list>
     </recent_temporary>
   </component>
@@ -502,7 +515,28 @@
       <option name="project" value="LOCAL" />
       <updated>1623693107431</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed graph repr">
+      <created>1623859932582</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1623859932583</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Refactoring and added virtual nodes creation">
+      <created>1623936380210</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1623936380210</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added compression module">
+      <created>1624143482436</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624143482436</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -554,14 +588,14 @@
       <window_info id="Structure" order="1" sideWeight="0.50120485" side_tool="true" weight="0.23351866" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960285" visible="true" weight="0.06382979" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.26950353" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.28723404" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960285" visible="true" weight="0.05319149" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5886525" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32978722" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49717057" weight="0.095744684" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49717057" weight="0.21985815" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50282943" side_tool="true" weight="0.608156" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32978722" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -578,7 +612,10 @@
     <MESSAGE value="added roaring bit map as set representation" />
     <MESSAGE value="Change graph creation with preprocessing" />
     <MESSAGE value="Added pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pipeline" />
+    <MESSAGE value="Fixed graph repr" />
+    <MESSAGE value="Refactoring and added virtual nodes creation" />
+    <MESSAGE value="added compression module" />
+    <option name="LAST_COMMIT_MESSAGE" value="added compression module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -589,73 +626,48 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/sets/set.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/benchmarks/run_benchmarks.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/benchmarks/run_benchmarks.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/algorithms/triangleCountEdgeParallel.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/out22.txt" />
-    <entry file="file://$PROJECT_DIR$/src/out33.txt" />
-    <entry file="file://$PROJECT_DIR$/tests/test_roaringBitMap.py" />
-    <entry file="file://$PROJECT_DIR$/out6.txt" />
-    <entry file="file://$PROJECT_DIR$/out2.txt" />
-    <entry file="file://$PROJECT_DIR$/src/somefile2.txt" />
-    <entry file="file://$PROJECT_DIR$/tests/roaring_bitMapSet.py">
+    <entry file="file://$PROJECT_DIR$/src/out.txt" />
+    <entry file="file://$PROJECT_DIR$/src/Slashdot0811_new.csv" />
+    <entry file="file://$PROJECT_DIR$/src/new_edges.csv" />
+    <entry file="file://$PROJECT_DIR$/src/main.py" />
+    <entry file="file://$PROJECT_DIR$/src/util/printing.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/runpy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="3179">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_graph_edges5.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-lj.ungraph.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="248">
+          <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/benchmarks/processed_edges.py" />
-    <entry file="file://$PROJECT_DIR$/tests/test_sortedListSet.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pyspark/rdd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/teamcity/diff_tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="844" selection-start-line="844" selection-end-line="844" />
+        <state relative-caret-position="68">
+          <caret line="1353" selection-start-line="1353" selection-end-line="1353" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_hashSet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
+        <state relative-caret-position="1377">
           <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
@@ -663,55 +675,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithms/vertex_similarity.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pyspark/sql/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="106">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/Slashdot0811.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="89" column="2" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pyspark/sql/readwriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="475" selection-start-line="475" selection-end-line="475" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_graph_edges2.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/py4j/java_gateway.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="1256" selection-start-line="1256" selection-end-line="1256" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/soc-pokec-profiles.txt" />
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/soc-pokec-relationships.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/soc-pokec-relationships_new.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="233">
-          <caret line="86162" column="7" selection-start-line="86162" selection-start-column="7" selection-end-line="86162" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/musae_git_target.csv" />
-    <entry file="file://$PROJECT_DIR$/src/yt_target.csv" />
-    <entry file="file://$PROJECT_DIR$/src/lj_target.csv" />
-    <entry file="file://$PROJECT_DIR$/src/out.txt" />
-    <entry file="file://$PROJECT_DIR$/src/Slashdot0811_new.csv" />
     <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_graph_clique_stars.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
@@ -722,69 +706,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/new_edges.csv" />
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/musae_git_edges.csv">
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_graph_edges.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
       <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="17">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        <state relative-caret-position="153">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.py" />
-    <entry file="file://$PROJECT_DIR$/src/util/printing.py" />
-    <entry file="file://$PROJECT_DIR$/src/algorithms/tomita.py">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/triangleCountVertexParallel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="46" column="18" lean-forward="true" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithms/triangleCount.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="85">
+          <caret line="5" column="61" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algorithms/KCliqueListing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="218">
+          <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithms/CliqueCount.py">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/vertex_similarity.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret lean-forward="true" />
+        <state relative-caret-position="167">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/benchmarks/benchmarks.py">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/CliqueCountVertexParallel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        <state relative-caret-position="14">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/runpy.py">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/CliqueCountEdgeParallel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3179">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
+        <state relative-caret-position="167">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithms/KCliqueStar.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pyspark/broadcast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state relative-caret-position="68">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithms/triangleCount2.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="14" />
+        <state relative-caret-position="60">
+          <caret line="332" selection-start-line="332" selection-end-line="332" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sets/set.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="191" column="4" selection-start-line="191" selection-start-column="4" selection-end-line="191" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -798,93 +792,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/script.py">
+    <entry file="file://$PROJECT_DIR$/src/benchmarks/benchmarks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="14" />
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_graph_edges.csv">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/triangleCountEdgeParallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithms/KCliqueStar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_graph_edges5.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/musae_git_edges.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret selection-end-line="9" selection-end-column="3" />
+        <state relative-caret-position="357">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-youtube.ungraph.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="2193">
-          <caret line="129" column="6" lean-forward="true" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-lj.ungraph.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="248">
-          <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithms/CliqueCount2.py">
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1712933849/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        <state relative-caret-position="123">
+          <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algorithms/bronKerbosch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="24" />
+        <state relative-caret-position="262">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphs/rddGraphSet.py">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/tomita.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="17">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/musae_facebook_edges.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/musae_FR_edges.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="127">
+          <caret line="112652" column="9" selection-start-line="112652" selection-start-column="9" selection-end-line="112652" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HR_target.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="68">
+          <caret line="23227" column="7" selection-start-line="23227" selection-start-column="7" selection-end-line="23227" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/HR_edges.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/a.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/convert_to_cannonical.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/test_for_virtual.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/benchmarks/amazon_target.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="213">
+          <caret line="334863" column="6" selection-start-line="334863" selection-end-line="334863" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-amazon.ungraph.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-youtube.ungraph.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="333">
+          <caret line="129" column="6" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphDatasets/com-dblp.ungraph.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pipeline/pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pyspark/rdd.py">
+    <entry file="file://$PROJECT_DIR$/src/graphs/rddGraphSet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="1353" selection-start-line="1353" selection-end-line="1353" />
+        <state relative-caret-position="184">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/benchmarks/run_benchmarks.py">
+    <entry file="file://$PROJECT_DIR$/src/compression/manual_testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="44" selection-start-line="44" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compression/clique_v_node.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/convert_to_cannonical.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sets/set.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="53" column="31" lean-forward="true" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
@@ -893,10 +980,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graph_creation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="279">
+          <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/benchmarks/run_benchmarks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="46" column="11" lean-forward="true" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,6 @@
 import os, sys
 
+from pyspark.sql import SparkSession
 
 currDir = os.path.dirname(os.path.realpath(__file__))
 rootDir = os.path.abspath(os.path.join(currDir, '../..'))
@@ -31,16 +32,16 @@ if __name__ == '__main__':
 
 
     if args.c :
-        file_name = "src/graphDatasets/com-youtube.ungraph.csv"
+        file_name = "src/graphDatasets/com-dblp.ungraph.csv"
     else:
-        file_name = '../graphDatasets/com-youtube.ungraph.csv'
+        file_name = '../graphDatasets/com-dblp.ungraph.csv'
+
 
     preprocessing_list1 = []
-    preprocessing_list2 = [remove_self_edges, make_graph_undirected]
-
-    pipeline = Pipeline(file_name, RoaringBitMapSet, {triangle_count_edge_parallel: [],
-                                                      clique_count_edge_parallel: [4]},
-                        [Benchmarks.TimeCount, Benchmarks.ProcessedEdgesPerSec],
+    # preprocessing_list2 = [remove_self_edges, make_graph_undirected]
+    #
+    pipeline = Pipeline(file_name, HashSet, {triangle_count_edge_parallel: []},
+                        [Benchmarks.TimeCount],
                         GraphRepresentation.EdgeRDDGraph, preprocessing_list1)
 
     # pipeline = Pipeline(file_name, RoaringBitMapSet,
@@ -62,7 +63,6 @@ if __name__ == '__main__':
     res = pipeline.run_all()
     for elem in res:
         print(elem)
-
 
 
     input('enter to crash')

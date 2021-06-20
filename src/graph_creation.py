@@ -18,6 +18,7 @@ def change_edge_orientation(r):
     return (r[1], r[0])
 
 
+
 def remove_self_edges(edges_rdd):
     return edges_rdd.filter(lambda x: x[0] != x[1])
 
@@ -33,6 +34,32 @@ def remove_duplicate_edges(edges_rdd):
 def make_graph_undirected(edges_rdd):
     return edges_rdd.flatMap(lambda x: [x, (x[1], x[0])])
 
+def find_longest_path(graph, vertex):
+    vertices_to_remove = [vertex]
+    neighb = list(graph.out_neighbours(vertex))[0]
+    next = neighb
+    while graph.out_degree(next) == 2:
+        vertices_to_remove.append(next)
+        next = list(graph.out_neighbours(next))[0]
+    return vertices_to_remove
+
+
+def remove_paths(sc, graph):
+    non_spark_graph = sc.broadcast(graph.get_spark_less_copy())
+    lonely_vertices = graph._rdd_custom_rows\
+        .filter(lambda row: len(row.neighbours) == 1)\
+        .map(lambda row: row.vId)\
+        .flatMap(lambda v: find_longest_path(non_spark_graph.value, v))\
+        .collect()
+
+    new_custom_rows = graph._rdd_custom_rows.filter(lambda row: row.vId not in lonely_vertices)
+    print(len(lonely_vertices))
+    print(graph._rdd_custom_rows.count())
+    print(new_custom_rows.count())
+    #return create_graph_repr(GraphRepresentation.RDDGraphSet, None, new_custom_rows)
+
+
+
 
 def create_graph(spark,
                  filename,
@@ -40,7 +67,7 @@ def create_graph(spark,
                  chosen_graph_representation,
                  preprocessing_list):
 
-    edges_rdd = spark.read.options(delimiter="\t", header='True').csv(filename).rdd
+    edges_rdd = spark.read.options(header='True', delimiter="\t").csv(filename).rdd
 
     for preprocessing_fun in preprocessing_list:
         edges_rdd = preprocessing_fun(edges_rdd)

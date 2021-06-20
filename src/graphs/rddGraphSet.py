@@ -27,6 +27,9 @@ class NaiveSparklessSet:
     def all_nodes(self):
         return self._all_vertices
 
+    def out_degree(self, vertexID):
+        return len(self.out_neighbours(vertexID))
+
     def out_neighbours(self, vid):
         if vid in self._n_list:
             return self._n_list[vid]
